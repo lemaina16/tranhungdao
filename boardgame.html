@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Board Game & Mini Game Hub</title>
+    <style>
+        :root {
+            --primary: #764ba2;
+            --accent: #ffd700;
+            --bg: #0f172a;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: white;
+            margin: 0;
+            text-align: center;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .intro-box {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px dashed rgba(255,255,255,0.2);
+        }
+
+        .game-area {
+            background: #000;
+            border: 3px solid var(--primary);
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(118, 75, 162, 0.5);
+        }
+        #canvas {
+            width: 100%;
+            height: 400px;
+            background: #111;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: crosshair;
+        }
+        #basket {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            width: 70px;
+            height: 15px;
+            background: var(--accent);
+            border-radius: 20px;
+            box-shadow: 0 0 10px var(--accent);
+        }
+        .item { position: absolute; font-size: 25px; }
+        
+        .btn-start {
+            margin-top: 20px;
+            padding: 12px 35px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-start:hover { transform: scale(1.1); background: #8e5bd3; }
+        
+        .back-link { display: block; margin-top: 30px; color: #888; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="intro-box">
+        <h1>🎲 Board Game Hub</h1>
+        <p>Tại CLB, chúng mình có: <b>Ma Sói, Uno, Cờ Vua, Mèo Nổ...</b></p>
+        <p>Trong khi chờ đợi đến giờ chơi offline, hãy thử tài nhanh tay với game dưới đây!</p>
+    </div>
+
+    <div class="game-area">
+        <h3 style="color: var(--accent)">🕹️ Mini Game: Hứng Quân Cờ</h3>
+        <div id="score-val">Điểm: 0</div>
+        
+        <div id="canvas">
+            <div id="basket"></div>
+        </div>
+
+        <button class="btn-start" onclick="startGame()">BẮT ĐẦU CHƠI</button>
+    </div>
+
+    <a href="index.html" class="back-link">← Quay về trang chủ</a>
+</div>
+
+<script>
+    const canvas = document.getElementById('canvas');
+    const basket = document.getElementById('basket');
+    const scoreVal = document.getElementById('score-val');
+    let score = 0;
+    let playing = false;
+
+    // Di chuyển thanh hứng
+    canvas.addEventListener('mousemove', (e) => {
+        let rect = canvas.getBoundingClientRect();
+        let x = e.clientX - rect.left - basket.offsetWidth / 2;
+        if(x < 0) x = 0;
+        if(x > rect.width - basket.offsetWidth) x = rect.width - basket.offsetWidth;
+        basket.style.left = x + 'px';
+    });
+
+    function startGame() {
+        if(playing) return;
+        playing = true;
+        score = 0;
+        scoreVal.innerText = "Điểm: 0";
+        spawn();
+    }
+
+    function spawn() {
+        if(!playing) return;
+        const item = document.createElement('div');
+        item.className = 'item';
+        const icons = ['🎲', '♟️', '🃏', '🎴'];
+        item.innerText = icons[Math.floor(Math.random()*icons.length)];
+        item.style.left = Math.random() * (canvas.offsetWidth - 30) + 'px';
+        item.style.top = "0px";
+        canvas.appendChild(item);
+
+        let fall = setInterval(() => {
+            let top = parseInt(item.style.top);
+            item.style.top = (top + 4) + "px";
+
+            let iRect = item.getBoundingClientRect();
+            let bRect = basket.getBoundingClientRect();
+
+            if(iRect.bottom >= bRect.top && iRect.right >= bRect.left && iRect.left <= bRect.right) {
+                score += 10;
+                scoreVal.innerText = "Điểm: " + score;
+                item.remove();
+                clearInterval(fall);
+            }
+
+            if(top > canvas.offsetHeight) {
+                playing = false;
+                alert("Game Over! Điểm của bạn: " + score);
+                item.remove();
+                clearInterval(fall);
+            }
+        }, 20);
+
+        if(playing) setTimeout(spawn, 1000);
+    }
+</script>
+
+</body>
+</html>

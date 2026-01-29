@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu lạc bộ Trường Học</title>
+    <style>
+        :root {
+            --primary-color: #2c7be5;
+            --dark-color: #1a202c;
+            --light-bg: #f8f9fa;
+            --text-muted: #6c757d;
+            --recreation-grad: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.6;
+        }
+        .banner {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url("images/banner.jpg") center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .banner-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .slogan-bar {
+            background: white;
+            padding: 40px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: -50px auto 0;
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            border-radius: 20px;
+        }
+
+        .slogan-flex {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .slogan-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+        }
+
+        /* Container CLB */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark-color);
+        }
+
+        .club-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .club-grid { grid-template-columns: 1fr; }
+        }
+
+        .club-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .club-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .club-image {
+            width: 40%;
+            overflow: hidden;
+        }
+
+        .club-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .club-card:hover .club-image img { transform: scale(1.1); }
+
+        .club-info {
+            padding: 25px;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .club-info h3 { margin: 0 0 10px 0; font-size: 1.4rem; }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            align-self: flex-start;
+            transition: var(--transition);
+        }
+        .recreation-wrapper {
+            background: var(--recreation-grad);
+            padding: 80px 0;
+            margin-top: 60px;
+            color: white;
+        }
+
+        .recreation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .recreation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .recreation-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .recreation-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .recreation-card h4 { color: #ffd700; margin-bottom: 15px; font-size: 1.4rem; margin-top: 0;}
+
+        .game-tags {
+            margin: 10px 0 15px;
+        }
+        .game-tags span {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            color: #eee;
+        }
+
+        .btn-white {
+            background: white;
+            color: #764ba2;
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            align-self: flex-start;
+            transition: var(--transition);
+        }
+
+        .btn-white:hover {
+            background: #ffd700;
+            color: #333;
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: #888;
+            text-align: center;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="banner">
+    <div class="banner-content">
+        <h1>Câu Lạc Bộ Trường Trần Hưng Đạo</h1>
+        <p>Nơi tài năng tỏa sáng và đam mê bắt đầu</p>
+    </div>
+</div>
+
+<div class="slogan-bar">
+    <div class="slogan-flex">
+        <div class="slogan-item">
+            <h3>Năng động</h3>
+            <p>Hoạt động hiệu quả và tích cực</p>
+        </div>
+        <div class="slogan-item">
+            <h3>Đam mê</h3>
+            <p>Sống hết mình với sở thích</p>
+        </div>
+        <div class="slogan-item">
+            <h3>Tỏa sáng</h3>
+            <p>Gặt hái những thành công lớn</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="section-title">Khám Phá Các Câu Lạc Bộ</h2>
+    <div class="club-grid">
+        <div class="club-card">
+            <div class="club-image"><img src="images/mythuat1.jpg" alt="Mỹ thuật"></div>
+            <div class="club-info">
+                <h3>🎨 Mỹ thuật</h3>
+                <p>Khám phá thế giới sắc màu và sáng tạo không giới hạn.</p>
+                <a href="mythuat.html" class="btn">Xem chi tiết</a>
+            </div>
+        </div>
+        <div class="club-card">
+            <div class="club-image"><img src="images/thethao1.jpg" alt="Thể thao"></div>
+            <div class="club-info">
+                <h3>⚽ Thể thao</h3>
+                <p>Rèn luyện sức khỏe và tinh thần đồng đội bền bỉ.</p>
+                <a href="thethao.html" class="btn">Xem chi tiết</a>
+            </div>
+        </div>
+        <div class="club-card">
+            <div class="club-image"><img src="images/amnhac1.jpg" alt="Âm nhạc"></div>
+            <div class="club-info">
+                <h3>🎵 Âm nhạc</h3>
+                <p>Kết nối tâm hồn qua những giai điệu tuyệt vời.</p>
+                <a href="amnhac.html" class="btn">Xem chi tiết</a>
+            </div>
+        </div>
+        <div class="club-card">
+            <div class="club-image"><img src="images/tinhoc1.jpg" alt="Tin học"></div>
+            <div class="club-info">
+                <h3>💻 Tin học</h3>
+                <p>Chinh phục công nghệ và làm chủ tương lai số.</p>
+                <a href="tinhoc.html" class="btn">Xem chi tiết</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="recreation-wrapper">
+    <div class="recreation-container">
+        <h2 class="section-title" style="color: white;">🎮 Góc Vui Chơi</h2>
+        <div class="recreation-grid">
+            
+            <div class="recreation-card">
+                <div>
+                    <h4>🎲 Board Game Hub</h4>
+                    <p>Kho tàng trò chơi trí tuệ và các trò chơi trực tuyến hấp dẫn giúp bạn giải trí cực đã.</p>
+                    <div class="game-tags">
+                        <span>#MaSoi</span> <span>#Uno</span> <span>#MiniGame</span>
+                    </div>
+                </div>
+                <a href="boardgame.html" class="btn-white">Chơi & Khám phá</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 | Website Câu Lạc Bộ Trường Học | Thiết kế bởi Tuấn Anh</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+.recreation-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 60px 20px;
+    border-radius: 30px;
+    margin: 40px auto;
+    max-width: 1160px;
+    color: white;
+}
+
+.recreation-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.recreation-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.recreation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.recreation-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 25px;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.recreation-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.03);
+}
+
+.recreation-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #ffd700; 
+}
+
+.recreation-item p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.btn-light {
+    background: white;
+    color: #764ba2;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.btn-light:hover {
+    background: #ffd700;
+    color: #333;
+}
+
+.slogan-bar {
+    background: white;
+    padding: 20px 15px; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    margin: -30px auto 0; 
+    position: relative;
+    z-index: 10;
+    max-width: 900px; 
+    border-radius: 15px;
+}
+
+.slogan-flex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px; 
+    text-align: center;
+}
+
+.slogan-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 4px;
+    font-size: 1.1rem; 
+}
+
+.slogan-item p {
+    font-size: 0.85rem; 
+    margin: 0;
+    color: var(--text-muted);
+}

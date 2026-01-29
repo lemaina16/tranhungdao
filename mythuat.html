@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLB Mỹ thuật | Sáng tạo & Nghệ thuật</title>
+    <style>
+        :root {
+            --primary-color: #2c7be5;
+            --accent-color: #ff6b6b;
+            --dark-color: #1a202c;
+            --light-bg: #f5f7fa;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light-bg);
+            margin: 0;
+            color: #444;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #6a11cb);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 60px; 
+            padding: 0 20px;
+        }
+
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            font-size: 1.6rem;
+            margin-top: 30px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        ul li::before {
+            content: "✦";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        /* Nút quay về */
+        .back {
+            display: inline-block;
+            margin-top: 40px;
+            text-decoration: none;
+            background: white;
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .back:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(-10px); 
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎨 Câu lạc bộ Mỹ thuật</h1>
+    <p>Nơi nét vẽ khơi nguồn cảm hứng</p>
+</header>
+
+<div class="container">
+    <div class="content-card">
+        <p class="intro-text">
+            Chào mừng các họa sĩ trẻ! CLB Mỹ thuật không chỉ là nơi học vẽ, mà là không gian để bạn thể hiện cá tính, 
+            tự do thiết kế và biến những ý tưởng điên rồ nhất thành những tác phẩm nghệ thuật có giá trị.
+        </p>
+
+        <h3>✨ Hoạt động nổi bật</h3>
+        <ul>
+            <li>Workshop vẽ màu nước và sơn dầu hàng tuần.</li>
+            <li>Thiết kế bối cảnh cho các sự kiện lớn của trường.</li>
+            <li>Triển lãm tranh định kỳ tại sảnh chính.</li>
+            <li>Tham gia các cuộc thi sáng tạo cấp Thành phố.</li>
+        </ul>
+
+        <h3>🖼️ Không gian hoạt động</h3>
+        <div class="gallery">
+            <div class="gallery-item"><img src="images/mythuat1.jpg" alt="Hoạt động 1"></div>
+            <div class="gallery-item"><img src="images/mythuat2.jpg" alt="Hoạt động 2"></div>
+            <div class="gallery-item"><img src="images/mythuat3.jpg" alt="Hoạt động 3"></div>
+        </div>
+
+        <a class="back" href="index.html">← Quay về trang chủ</a>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 | CLB Mỹ thuật - Sáng tạo không giới hạn | Tuấn Anh Design</p>
+</footer>
+
+</body>
+</html>
